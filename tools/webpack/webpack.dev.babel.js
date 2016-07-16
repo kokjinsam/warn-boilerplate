@@ -4,6 +4,9 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const cssnext = require('postcss-cssnext');
+const postcssFocus = require('postcss-focus');
+const postcssReporter = require('postcss-reporter');
 
 const wds = {
   hostname: process.env.HOSTNAME || 'localhost',
@@ -11,7 +14,6 @@ const wds = {
 };
 
 module.exports = require('./webpack.base.babel')({
-  // devtool: 'cheap-module-eval-source-map',
   devtool: 'eval',
   devServer: {
     publicPath: `http://${wds.hostname}:${wds.port}/`,
@@ -34,5 +36,15 @@ module.exports = require('./webpack.base.babel')({
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
+  ],
+  cssLoaders: 'style-loader!css-loader?localIdentName=[local]__[path][name]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss-loader',
+  postcssPlugins: [
+    postcssFocus(),
+    cssnext({
+      browsers: ['last 2 versions', 'IE > 10'],
+    }),
+    postcssReporter({
+      clearMessages: true,
+    }),
   ],
 });

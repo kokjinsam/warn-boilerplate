@@ -36,6 +36,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.9.0",
     "cross-env": "^2.0.0",
+    "css-loader": "^0.23.1",
     "eslint": "^3.1.0",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-babel": "^3.3.0",
@@ -44,7 +45,12 @@
     "eslint-plugin-jsx-control-statements": "^2.1.1",
     "eslint-plugin-react": "^5.2.2",
     "jsx-control-statements": "^3.1.2",
+    "postcss-cssnext": "^2.7.0",
+    "postcss-focus": "^1.0.0",
+    "postcss-loader": "^0.9.1",
+    "postcss-reporter": "^1.4.1",
     "react-hot-loader": "^3.0.0-beta.2",
+    "style-loader": "^0.13.1",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   }

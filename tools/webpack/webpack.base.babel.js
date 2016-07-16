@@ -17,6 +17,15 @@ module.exports = (options) => ({
       test: /\.js$/,
       loaders: ['babel'],
       include: path.join(process.cwd(), 'src'),
+    }, {
+      // Transform our own .css files with PostCSS and CSS-modules
+      test: /\.css$/,
+      exclude: /node_modules/,
+      loader: options.cssLoaders,
+    }, {
+      test: /\.css$/,
+      include: /node_modules/,
+      loaders: ['style-loader', 'css-loader'],
     }],
   },
   plugins: options.plugins.concat([

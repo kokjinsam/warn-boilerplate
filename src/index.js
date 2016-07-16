@@ -7,6 +7,9 @@ import { browserHistory } from 'react-router';
 import App from './components/App';
 import routes from './routes';
 
+import './components/App/normalize.css';
+import './components/App/base.css';
+
 const initialState = (window && window.__INITIAL_STATE__) ? window.__INITIAL_STATE__ : {};
 
 if ((window && window.__INITIAL_STATE__)) {

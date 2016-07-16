@@ -5,15 +5,22 @@ import configureStore from './store';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 import App from './components/App';
+import routes from './routes';
 
 const initialState = (window && window.__INITIAL_STATE__) ? window.__INITIAL_STATE__ : {};
-const store = configureStore(initialState);
 
 if ((window && window.__INITIAL_STATE__)) {
   delete window.__INITIAL_STATE__;
 }
 
-const history = syncHistoryWithStore(browserHistory, store);
+const store = configureStore({
+  initialState,
+  history: browserHistory,
+});
+
+const history = syncHistoryWithStore(browserHistory, store, {
+  selectLocationState: (state) => state.router,
+});
 
 const MOUNT_NODE = document.getElementById('app');
 ReactDOM.render(
@@ -21,6 +28,7 @@ ReactDOM.render(
     <App
       store={store}
       history={history}
+      routes={routes}
     />
   </AppContainer>,
   MOUNT_NODE
@@ -34,6 +42,7 @@ if (module.hot) {
         <NextApp
           store={store}
           history={history}
+          routes={routes}
         />
       </AppContainer>,
       MOUNT_NODE

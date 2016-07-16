@@ -29,3 +29,4 @@ open http://localhost:3000
 * [gaearon/react-hot-loader](https://github.com/gaearon/react-hot-boilerplate)
 * [mxstbr/react-boilerplate](https://github.com/mxstbr/react-boilerplate)
 * [jkudish/spark-react-starter](https://github.com/jkudish/spark-react-starter)
+* [davezuko/react-redux-starter-kit](https://github.com/davezuko/react-redux-starter-kit)

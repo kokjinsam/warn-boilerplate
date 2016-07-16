@@ -3,17 +3,20 @@ import {
   applyMiddleware,
   compose,
 } from 'redux';
+import { routerMiddleware } from 'react-router-redux';
 import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
 import reducer from '../reducers';
 
 export default function ({
   initialState,
+  history,
 }) {
   const logger = createLogger();
   const middleware = [
     thunk,
     logger,
+    routerMiddleware(history),
   ];
 
   const enhancers = [];

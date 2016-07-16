@@ -26,11 +26,28 @@ module.exports = (options) => ({
       test: /\.css$/,
       include: /node_modules/,
       loaders: ['style-loader', 'css-loader'],
+    }, {
+      test: /\.(eot|svg|ttf|woff|woff2)$/,
+      loader: 'file-loader',
+    }, {
+      test: /\.(jpg|png|gif)$/,
+      loaders: [
+        'file-loader',
+        'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}',
+      ],
+    }, {
+      test: /\.html$/,
+      loader: 'html-loader',
+    }, {
+      test: /\.json$/,
+      loader: 'json-loader',
+    }, {
+      test: /\.(mp4|webm)$/,
+      loader: 'url-loader?limit=10000',
     }],
   },
   plugins: options.plugins.concat([
     new webpack.ProvidePlugin({
-      // make fetch available
       fetch: 'exports?self.fetch!whatwg-fetch',
     }),
     new webpack.DefinePlugin({

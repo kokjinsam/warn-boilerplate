@@ -1,7 +1,7 @@
 import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import configureStore from './store';
+import createStore from './lib/createReduxStore';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 import App from './components/App';
@@ -13,7 +13,7 @@ if ((window && window.__INITIAL_STATE__)) {
   delete window.__INITIAL_STATE__;
 }
 
-const store = configureStore({
+const store = createStore({
   initialState,
   history: browserHistory,
 });

@@ -30,4 +30,16 @@ module.exports = (options) => ({
       },
     }),
   ]),
+  resolve: {
+    modulesDirectories: [
+      'src',
+      'node_modules',
+    ],
+    extensions: [
+      '',
+      '.json',
+      '.js',
+      '.jsx',
+    ],
+  },
 });

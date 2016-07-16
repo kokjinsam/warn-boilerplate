@@ -16,10 +16,13 @@ open http://localhost:3000
 
 | Aspect             | Command                |
 |--------------------|:----------------------:|
-| Production Run     | `npm run start:prod`   |
 | Development        | `npm run start:dev`    |
 | Linting            | `npm run lint`         |
-| Production Build   | `npm run build`        |
+
+### Trouble Shooting
+
+1. `Warning: [react-router] You cannot change <Router routes>; it will be ignored`
+    According to gaearon's comment [here](Warning: [react-router] You cannot change <Router routes>; it will be ignored), we can ignore this warning.
 
 ### References
 

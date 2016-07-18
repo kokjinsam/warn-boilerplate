@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "cross-env NODE_ENV=development node ./tools/server.js"
+    "start": "cross-env NODE_ENV=development node ./tools/devServer.js"
   },
   "dependencies": {
     "jss": "^5.1.0",
@@ -40,8 +40,13 @@
     "eslint-plugin-jsx-a11y": "^2.0.1",
     "eslint-plugin-jsx-control-statements": "^2.1.1",
     "eslint-plugin-react": "^5.2.2",
+    "file-loader": "^0.9.0",
+    "html-loader": "^0.4.3",
+    "image-webpack-loader": "^2.0.0",
+    "json-loader": "^0.5.4",
     "jsx-control-statements": "^3.1.2",
     "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   }

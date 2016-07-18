@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import todos from './todos';
-import visibilityFilter from './visibilityFilter';
+import coreModule from './modules/core';
 
 const rootReducer = combineReducers({
   router: routerReducer,
-  todos,
-  visibilityFilter,
+
+  // Put all module reducers here
+  ...coreModule.reducers,
 });
 
 export default rootReducer;

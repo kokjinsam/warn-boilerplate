@@ -6,10 +6,9 @@ module.exports = (options) => ({
   target: 'web',
   stats: false,
   progress: true,
-  devServer: options.devServer,
   entry: options.entry,
   output: Object.assign({
-    path: path.resolve(process.cwd(), 'build'),
+    path: path.resolve(process.cwd(), 'dist'),
     publicPath: '/',
   }, options.output),
   module: {
@@ -18,15 +17,11 @@ module.exports = (options) => ({
       loaders: ['babel'],
       include: path.join(process.cwd(), 'src'),
     }, {
-      // Transform our own .css files with PostCSS and CSS-modules
-      test: /\.css$/,
-      exclude: /node_modules/,
-      loader: options.cssLoaders,
-    }, {
+      // transform node_modules css
       test: /\.css$/,
       include: /node_modules/,
       loaders: ['style-loader', 'css-loader'],
-    }, {
+    }, /*{
       test: /\.(eot|svg|ttf|woff|woff2)$/,
       loader: 'file-loader',
     }, {
@@ -44,7 +39,7 @@ module.exports = (options) => ({
     }, {
       test: /\.(mp4|webm)$/,
       loader: 'url-loader?limit=10000',
-    }],
+    }*/],
   },
   plugins: options.plugins.concat([
     new webpack.ProvidePlugin({

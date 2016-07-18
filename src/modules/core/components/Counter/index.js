@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import styles from './styles';
+import useSheet from 'react-jss';
 
-export default class Counter extends Component {
+class Counter extends Component {
   constructor(props) {
     super(props);
     this.state = { counter: 0 };
@@ -21,8 +23,15 @@ export default class Counter extends Component {
   }
 
   render() {
+    const classes = this.props.sheet.classes;
+
     return (
-      <h2>The Counter: {this.state.counter}</h2>
+      <div>
+        <h2 className={classes.title}>Counter pop: {this.state.counter}</h2>
+        <If condition={true}><span>jsx control yea</span></If>
+      </div>
    );
   }
 }
+
+export default useSheet(Counter, styles);

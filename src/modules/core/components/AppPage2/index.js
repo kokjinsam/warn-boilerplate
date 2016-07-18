@@ -4,7 +4,7 @@ class AppPage2 extends Component {
   render() {
     return (
       <div>
-        AppPage component 2 oohhh
+        AppPage component 2 lol hey
       </div>
     );
   }

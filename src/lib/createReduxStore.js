@@ -32,8 +32,8 @@ export default function ({
 
   if (module.hot) {
     module.hot.accept('../rootReducer', () => {
-      const { reducer: nextReducer } = require('../rootReducer');
-      store.replaceReducer(nextReducer);
+      const nextRootReducer = require('../rootReducer').default;
+      store.replaceReducer(nextRootReducer);
     });
   }
 

@@ -7,7 +7,6 @@ class AppPage extends Component {
   render() {
     return (
       <div>
-        AppPage component
         <Layout>
           <Counter />
         </Layout>

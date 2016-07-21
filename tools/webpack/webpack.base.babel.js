@@ -8,7 +8,7 @@ module.exports = (options) => ({
   progress: true,
   entry: options.entry,
   output: Object.assign({
-    path: path.resolve(process.cwd(), 'dist'),
+    path: path.resolve(process.cwd(), 'build'),
     publicPath: '/',
   }, options.output),
   module: {

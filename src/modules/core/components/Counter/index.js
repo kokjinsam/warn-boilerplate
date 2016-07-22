@@ -1,8 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import styles from './styles';
 import useSheet from 'react-jss';
 
 class Counter extends Component {
+  static propTypes = {
+    sheet: PropTypes.any.isRequired,
+  };
+
   constructor(props) {
     super(props);
     this.state = { counter: 0 };
@@ -12,14 +16,14 @@ class Counter extends Component {
     this.interval = setInterval(this.tick.bind(this), 1000);
   }
 
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
   tick() {
     this.setState({
       counter: this.state.counter + 1,
     });
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.interval);
   }
 
   render() {
@@ -28,7 +32,6 @@ class Counter extends Component {
     return (
       <div>
         <h2 className={classes.title}>Counter pop: {this.state.counter}</h2>
-        <If condition={true}><span>jsx control yea</span></If>
       </div>
    );
   }

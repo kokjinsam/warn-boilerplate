@@ -1,27 +1,33 @@
 /**
  * DEVELOPMENT WEBPACK CONFIGURATION
  */
-
 const path = require('path');
 const webpack = require('webpack');
+const validate = require('webpack-validator');
+const FlowStatusWebpackPlugin = require('flow-status-webpack-plugin');
+const createWebpackConfig = require('./webpack.base.babel');
+const webpackConfig = require('../configs/webpack');
 
-module.exports = require('./webpack.base.babel')({
+const devServerPath = `webpack-dev-server/client?http://${webpackConfig.hostname}:${webpackConfig.port}`;
+
+module.exports = validate(createWebpackConfig({
   devtool: 'eval',
-  entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    path.join(process.cwd(), 'src/index.js'),
-  ],
+  entry: {
+    app: [
+      'react-hot-loader/patch',
+      'webpack/hot/only-dev-server',
+      devServerPath,
+      path.join(webpackConfig.srcPath, 'index.js'),
+    ],
+  },
   output: {
     // filename: '[name].js',
-    // chunkFilename: '[name].chunk.js',
+    chunkFilename: '[name].chunk.js',
     filename: 'bundle.js',
-    // hotUpdateMainFilename: 'update/[hash]/update.json',
-    // hotUpdateChunkFilename: 'update/[hash]/[id].update.js',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    // new webpack.NoErrorsPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new FlowStatusWebpackPlugin(),
   ],
-});
+}));

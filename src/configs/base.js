@@ -1,4 +1,5 @@
 // @import url(//fonts.googleapis.com/css?family=Roboto),
+/* eslint-disable */
 
 export default {
   html: {
@@ -63,3 +64,4 @@ export default {
     '-webkit-appearance': 'none',
   },
 };
+/* eslint-enable */

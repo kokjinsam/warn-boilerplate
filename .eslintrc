@@ -11,7 +11,8 @@
   "plugins": [
     "babel",
     "react",
-    "jsx-control-statements"
+    "jsx-control-statements",
+    "flowtype"
   ],
 
   "globals": {
@@ -48,6 +49,8 @@
   },
 
   "rules": {
+    "global-require": 0,
+    "no-underscore-dangle": 0,
     "jsx-control-statements/jsx-choose-not-empty": 1,
     "jsx-control-statements/jsx-for-require-each": 1,
     "jsx-control-statements/jsx-for-require-of": 1,
@@ -55,7 +58,16 @@
     "jsx-control-statements/jsx-otherwise-once-last": 1,
     "jsx-control-statements/jsx-use-if-tag": 1,
     "jsx-control-statements/jsx-when-require-condition": 1,
-    "global-require": 0,
-    "no-underscore-dangle": 0
+    "flowtype/require-parameter-type": 1,
+    "flowtype/require-return-type": [1, "always", { "annotateUndefined": "never" }],
+    "flowtype/space-after-type-colon": [1, "always"],
+    "flowtype/space-before-type-colon": [1, "never"],
+    "flowtype/type-id-match": [1, "^([A-Z][a-z0-9]+)+Type$"]
+  },
+
+  "settings": {
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": true
+    }
   }
 }

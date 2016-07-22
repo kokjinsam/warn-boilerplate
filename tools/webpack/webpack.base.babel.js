@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const path = require('path');
+const webpackConfig = require('../configs/webpack');
 
 module.exports = (options) => ({
   devtool: options.devtool,
@@ -8,19 +8,24 @@ module.exports = (options) => ({
   progress: true,
   entry: options.entry,
   output: Object.assign({
-    path: path.resolve(process.cwd(), 'dist'),
-    publicPath: '/',
+    path: webpackConfig.buildPath,
+    publicPath: webpackConfig.publicPath,
   }, options.output),
   module: {
+    preLoaders: [{
+      test: /\.js$/,
+      loader: 'eslint',
+      include: webpackConfig.srcPath,
+    }],
     loaders: [{
       test: /\.js$/,
       loaders: ['babel'],
-      include: path.join(process.cwd(), 'src'),
+      include: webpackConfig.srcPath,
     }, {
       // transform node_modules css
       test: /\.css$/,
-      include: /node_modules/,
       loaders: ['style-loader', 'css-loader'],
+      include: webpackConfig.srcPath,
     }, {
       test: /\.(eot|svg|ttf|woff|woff2)$/,
       loader: 'file-loader',
@@ -40,6 +45,10 @@ module.exports = (options) => ({
       test: /\.(mp4|webm)$/,
       loader: 'url-loader?limit=10000',
     }],
+    postLoaders: [
+
+    ],
+    noParse: /\.min\.js/,
   },
   plugins: options.plugins.concat([
     new webpack.ProvidePlugin({
@@ -51,6 +60,10 @@ module.exports = (options) => ({
       },
     }),
   ]),
+  eslint: {
+    failOnWarning: false,
+    failOnError: false,
+  },
   resolve: {
     modulesDirectories: [
       'src',

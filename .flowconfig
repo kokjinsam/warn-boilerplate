@@ -1,0 +1,10 @@
+[libs]
+interfaces/
+
+[ignore]
+.*/node_modules/.*
+.*/build/.*
+.*/tools/.*
+
+[options]
+esproposal.class_static_fields=enable

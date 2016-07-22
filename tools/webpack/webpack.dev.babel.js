@@ -1,20 +1,22 @@
 /**
  * DEVELOPMENT WEBPACK CONFIGURATION
  */
-
 const path = require('path');
 const webpack = require('webpack');
 const validate = require('webpack-validator');
 const createWebpackConfig = require('./webpack.base.babel');
+const webpackConfig = require('../configs/webpack');
+
+const devServerPath = `webpack-dev-server/client?http://${webpackConfig.hostname}:${webpackConfig.port}`;
 
 module.exports = validate(createWebpackConfig({
   devtool: 'eval',
   entry: {
     app: [
       'react-hot-loader/patch',
-      'webpack-dev-server/client?http://localhost:8080',
       'webpack/hot/only-dev-server',
-      path.join(process.cwd(), 'src/index.js'),
+      devServerPath,
+      path.join(webpackConfig.srcPath, 'index.js'),
     ],
   },
   output: {

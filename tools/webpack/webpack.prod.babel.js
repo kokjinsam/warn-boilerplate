@@ -19,7 +19,7 @@ module.exports = validate(createWebpackConfig({
     vendor: Object.keys(pkg.dependencies),
   },
   output: {
-    filename: '[name].[hash]js',
+    filename: '[name].[hash].js',
     chunkFilename: '[name].[hash].chunk.js',
   },
   plugins: [

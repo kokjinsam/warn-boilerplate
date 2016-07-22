@@ -3,6 +3,7 @@ import Counter from '../Counter';
 import Layout from '../Layout';
 import { Link } from 'react-router';
 
+/* eslint-disable */
 class AppPage extends Component {
   render() {
     return (
@@ -16,5 +17,5 @@ class AppPage extends Component {
     );
   }
 }
-
+/* eslint-enable */
 export default AppPage;

@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const path = require('path');
 const webpackConfig = require('../configs/webpack');
 
 module.exports = (options) => ({
@@ -25,8 +24,8 @@ module.exports = (options) => ({
     }, {
       // transform node_modules css
       test: /\.css$/,
-      include: /node_modules/,
       loaders: ['style-loader', 'css-loader'],
+      include: webpackConfig.srcPath,
     }, {
       test: /\.(eot|svg|ttf|woff|woff2)$/,
       loader: 'file-loader',

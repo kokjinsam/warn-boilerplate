@@ -4,6 +4,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const validate = require('webpack-validator');
+const FlowStatusWebpackPlugin = require('flow-status-webpack-plugin');
 const createWebpackConfig = require('./webpack.base.babel');
 const webpackConfig = require('../configs/webpack');
 
@@ -27,5 +28,6 @@ module.exports = validate(createWebpackConfig({
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
+    new FlowStatusWebpackPlugin(),
   ],
 }));

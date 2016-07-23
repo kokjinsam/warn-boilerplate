@@ -1,23 +1,41 @@
-# [WIP] React Client Boilerplate
+# [WIP] Apollo Boilerplate
 
-> minimal opinionated boilerplate for those who want to get started fast
+> minimal boilerplate to get things up and running fast
 
 ### Installation
 
 ```
-git clone https://github.com/sammkj/react-client-boilerplate
-cd react-client-boilerplate
+git clone https://github.com/sammkj/apollo-boilerplate
+cd apollo-boilerplate
 npm install
 npm start
-open http://localhost:3000
+open http://localhost:8080
 ```
+
+### Default Ports
+
+| Ports    | Server                                     |
+|----------|--------------------------------------------|
+| 8080     | Front-end Server                           |
+| 8082     | Back-end Server to hot reload server code  |
+| 3000     | Node Server                                |
+
+To configure ports for front-end and back-end server, go to `tools/configs` and edit respective ports.
 
 ### Commands
 
-| Aspect             | Command                |
-|--------------------|:----------------------:|
-| Development        | `npm run start:dev`    |
-| Linting            | `npm run lint`         |
+| Aspect             | Command                | Comments                                  |
+|--------------------|------------------------|-------------------------------------------|
+| Development        | `npm run start`        | Start front-end, back-end and node server |
+| Client Development | `npm run start:client` | Start front-end server only               |
+| Server Development | `npm run start:server` | Start back-end and node server only       |
+| Build              | `npm run build`        | Build both client and server              |
+| Client Build       | `npm run build:client` | Build client only                         |
+| Server Build       | `npm run build:server` | Build server only                         |
+
+**Some notes on building client**
+
+* Any server dependencies such as `express`, `apollo-server` must not be included in the client build. To do that, go to `tools/configs/client.js` and add server dependencies to `omittedVendors`.
 
 ### Trouble Shooting
 

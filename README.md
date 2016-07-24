@@ -59,6 +59,16 @@ Available Server Configurations
 * port
 * serverDirName
 
+### Deployment
+
+#### Client Bundle
+
+To Github pages, you can use `[gh-page](https://github.com/tschaub/gh-pages)`.
+
+To Amazon S3, you can use `[s3-deploy](https://github.com/import-io/s3-deploy)`.
+
+#### Server Bundle
+
 ### Trouble Shooting
 
 1. `Warning: [react-router] You cannot change <Router routes>; it will be ignored`

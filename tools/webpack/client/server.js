@@ -16,6 +16,8 @@ new WebpackDevServer(webpack(webpackConfig), {
   hot: true,
   historyApiFallback: true,
   contentBase: configs.srcPath,
+  noInfo: true,
+  colors: true,
 }).listen(configs.port, configs.hostname, (err) => {
   if (err) {
     console.log(`

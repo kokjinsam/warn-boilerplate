@@ -1,12 +1,17 @@
-# [WIP] Apollo Boilerplate
+# [WIP] WARN Boilerplate
 
 > minimal boilerplate to get things up and running fast
+
+**W** - Webpack
+**A** - Apollo
+**R** - React
+**N** - Node
 
 ### Installation
 
 ```
-git clone https://github.com/sammkj/apollo-boilerplate
-cd apollo-boilerplate
+git clone https://github.com/sammkj/warn-boilerplate
+cd warn-boilerplate
 npm install
 npm start
 open http://localhost:8080

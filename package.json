@@ -1,12 +1,12 @@
 {
-  "name": "apollo-boilerplate",
+  "name": "warn-boilerplate",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "concurrently --kill-others \"npm run start:server\" \"npm run start:client\"",
     "start:client": "npm run webpack:client",
-    "start:server": "npm run node:server | npm run webpack:server",
-    "node:server": "node node_modules/just-wait --pattern \"build/*.js\" && cross-env NODE_ENV=development nodemon ./build/server.js",
+    "start:server": "npm run node:server & npm run webpack:server",
+    "node:server": "cross-env NODE_ENV=development nodemon ./build/server.js",
     "webpack:client": "cross-env NODE_ENV=development node ./tools/webpack/client/server.js",
     "webpack:server": "cross-env NODE_ENV=development webpack --watch --verbose --colors --display-error-details --config ./tools/webpack/server/dev.babel.js",
     "build": "npm run build:client | npm run build:server",
@@ -62,7 +62,6 @@
     "image-webpack-loader": "^2.0.0",
     "json-loader": "^0.5.4",
     "jsx-control-statements": "^3.1.2",
-    "just-wait": "^1.0.5",
     "nodemon": "^1.9.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",

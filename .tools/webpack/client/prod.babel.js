@@ -7,7 +7,6 @@ const webpack = require('webpack');
 const validate = require('webpack-validator');
 const createWebpackConfig = require('./base.babel');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpackConfig = require('../../configs/client');
 const pkg = require('../../../package.json');
 const pull = require('lodash.pull');
@@ -18,6 +17,7 @@ const vendors = pull(dependencies, ...webpackConfig.omittedVendors);
 /* eslint-disable no-console */
 console.log(`
   Dependencies that will be included in the front-end bundle:
+
   ${vendors}
 `);
 
@@ -34,9 +34,6 @@ module.exports = validate(createWebpackConfig({
     chunkFilename: '[name].[hash].chunk.js',
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Apollo Boilerplate',
-    }),
     new CleanWebpackPlugin(webpackConfig.buildPath, {
       root: process.cwd(),
     }),

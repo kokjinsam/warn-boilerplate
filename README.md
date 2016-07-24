@@ -1,6 +1,6 @@
 # [WIP] WARN Boilerplate
 
-> minimal boilerplate to get things up and running fast
+> yet another minimal boilerplate to get things up and running fast
 
 **W** - Webpack
 **A** - Apollo
@@ -41,6 +41,23 @@ To configure ports for front-end and back-end server, go to `tools/configs` and 
 **Some notes on building client**
 
 * Any server dependencies such as `express`, `apollo-server` must not be included in the client build. To do that, go to `tools/configs/client.js` and add server dependencies to `omittedVendors`.
+
+### Configurations
+
+Available Client Configurations
+
+* host
+* port
+* clientDirName
+* indexHTMLFileName
+
+-------------------
+
+Available Server Configurations
+
+* host
+* port
+* serverDirName
 
 ### Trouble Shooting
 

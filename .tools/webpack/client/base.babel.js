@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpackConfig = require('../../configs/client');
 
 module.exports = (options) => ({
@@ -51,6 +52,9 @@ module.exports = (options) => ({
     noParse: /\.min\.js/,
   },
   plugins: options.plugins.concat([
+    new HtmlWebpackPlugin({
+      template: webpackConfig.indexHtmlLocation,
+    }),
     new webpack.ProvidePlugin({
       fetch: 'exports?self.fetch!whatwg-fetch',
     }),

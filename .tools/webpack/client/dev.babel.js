@@ -21,9 +21,8 @@ module.exports = validate(createWebpackConfig({
     ],
   },
   output: {
-    // filename: '[name].js',
+    filename: '[name].js',
     chunkFilename: '[name].chunk.js',
-    filename: 'bundle.js',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

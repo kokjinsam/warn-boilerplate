@@ -6,6 +6,7 @@ const path = require('path');
 const clientConfig = require('../../.warn/configs/client.js');
 
 const clientDirName = clientConfig.clientDirName || 'client';
+const indexHTMLFileName = clientConfig.indexHTMLFileName || 'index.html';
 
 module.exports = {
   hostname: process.env.HOSTNAME || clientConfig.host || 'localhost',
@@ -19,4 +20,6 @@ module.exports = {
     'express',
     'apollo-server',
   ].concat(clientConfig.omittedVendors),
+  indexHTMLFileName,
+  indexHtmlLocation: path.join(clientDirName, indexHTMLFileName),
 };

@@ -17,6 +17,8 @@ npm start
 open http://localhost:8080
 ```
 
+-------------------
+
 ### Default Ports
 
 | Ports    | Server                                     |
@@ -25,7 +27,9 @@ open http://localhost:8080
 | 8082     | Back-end Server to hot reload server code  |
 | 3000     | Node Server                                |
 
-To configure ports for front-end and back-end server, go to `tools/configs` and edit respective ports.
+To configure ports for front-end and back-end server, go to `.warn/configs` and edit respective ports.
+
+-------------------
 
 ### Commands
 
@@ -40,7 +44,13 @@ To configure ports for front-end and back-end server, go to `tools/configs` and 
 
 **Some notes on building client**
 
-* Any server dependencies such as `express`, `apollo-server` must not be included in the client build. To do that, go to `tools/configs/client.js` and add server dependencies to `omittedVendors`.
+* Any server dependencies such as `express`, `apollo-server` must not be included in the client build. To do that, go to `.warn/configs/client.js` and add server dependencies to `omittedVendors`.
+
+**Some notes on using the tools**
+
+* If possible, do not alter anything in `.tools`. Use `.warn` to configure tools.
+
+-------------------
 
 ### Configurations
 
@@ -51,13 +61,13 @@ Available Client Configurations
 * clientDirName
 * indexHTMLFileName
 
--------------------
-
 Available Server Configurations
 
 * host
 * port
 * serverDirName
+
+-------------------
 
 ### Deployment
 
@@ -69,10 +79,14 @@ To Amazon S3, you can use `[s3-deploy](https://github.com/import-io/s3-deploy)`.
 
 #### Server Bundle
 
+-------------------
+
 ### Trouble Shooting
 
 1. `Warning: [react-router] You cannot change <Router routes>; it will be ignored`
     According to gaearon's comment [here](Warning: [react-router] You cannot change <Router routes>; it will be ignored), we can ignore this warning.
+
+-------------------
 
 ### References
 

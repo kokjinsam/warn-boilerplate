@@ -25,7 +25,7 @@ module.exports = (options) => ({
       // transform node_modules css
       test: /\.css$/,
       loaders: ['style-loader', 'css-loader'],
-      include: webpackConfig.srcPath,
+      include: webpackConfig.nodeModulesPath,
     }, {
       test: /\.(eot|svg|ttf|woff|woff2)$/,
       loader: 'file-loader',

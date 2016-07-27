@@ -11,6 +11,7 @@
   "plugins": [
     "babel",
     "react",
+    "jsx-a11y",
     "jsx-control-statements",
     "flowtype"
   ],

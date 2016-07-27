@@ -2,9 +2,11 @@
 .tools/interfaces/
 
 [ignore]
+.*/__tests__/.*
 .*/node_modules/.*
 .*/build/.*
 .*/tools/.*
 
 [options]
 esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable

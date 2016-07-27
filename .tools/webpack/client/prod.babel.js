@@ -7,6 +7,7 @@ const webpack = require('webpack');
 const validate = require('webpack-validator');
 const createWebpackConfig = require('./base.babel');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpackConfig = require('../../configs/client');
 const pkg = require('../../../package.json');
 const pull = require('lodash.pull');
@@ -25,6 +26,7 @@ module.exports = validate(createWebpackConfig({
   devtool: 'source-map',
   entry: {
     app: [
+      'babel-polyfill',
       path.join(webpackConfig.srcPath, 'index.js'),
     ],
     vendor: vendors,
@@ -37,16 +39,31 @@ module.exports = validate(createWebpackConfig({
     new CleanWebpackPlugin(webpackConfig.buildPath, {
       root: process.cwd(),
     }),
-    new webpack.optimize.OccurenceOrderPlugin(true),
-    new webpack.optimize.DedupePlugin(),
+    new HtmlWebpackPlugin({
+      template: webpackConfig.indexHtmlLocation,
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true,
+      },
+      inject: true,
+    }),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest'],
     }),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
       },
     }),
-    new webpack.optimize.AggressiveMergingPlugin(),
   ],
 }));

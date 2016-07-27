@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import coreModule from './modules/core';
+import todos from './modules/core/reducers/todos';
 
 const rootReducer = combineReducers({
   router: routerReducer,
 
   // Put all module reducers here
-  ...coreModule.reducers,
+  todos,
 });
 
 export default rootReducer;

@@ -5,7 +5,7 @@ import {
 } from 'redux';
 import { routerMiddleware } from 'react-router-redux';
 import createLogger from 'redux-logger';
-import reducer from '../rootReducer';
+import reducer from '../reducer';
 
 export default function ({
   initialState,
@@ -31,8 +31,8 @@ export default function ({
   store.asyncReducers = {};
 
   if (module.hot) {
-    module.hot.accept('../rootReducer', () => {
-      const nextRootReducer = require('../rootReducer').default;
+    module.hot.accept('../reducer', () => {
+      const nextRootReducer = require('../reducer').default;
       store.replaceReducer(nextRootReducer);
     });
   }

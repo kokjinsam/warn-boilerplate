@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const WebpackMD5Hash = require('webpack-md5-hash');
 const webpackConfig = require('../../configs/client');
 
 module.exports = (options) => ({
@@ -51,6 +52,7 @@ module.exports = (options) => ({
     noParse: /\.min\.js/,
   },
   plugins: options.plugins.concat([
+    new WebpackMD5Hash(),
     new webpack.ProvidePlugin({
       Promise: 'imports?this=>global!exports?global.Promise!es6-promise',
       fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch',

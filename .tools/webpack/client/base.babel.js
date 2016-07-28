@@ -29,22 +29,22 @@ module.exports = (options) => ({
       include: webpackConfig.nodeModulesPath,
     }, {
       test: /\.(eot|svg|ttf|woff|woff2)$/,
-      loader: 'file-loader',
+      loader: 'file?name=fonts.[name].[ext]',
     }, {
-      test: /\.(jpg|png|gif)$/,
+      test: /\.(jpg|jpeg|png|gif|ico)$/,
       loaders: [
-        'file-loader',
+        'file?name=[name].[ext]',
         'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}',
       ],
     }, {
       test: /\.html$/,
-      loader: 'html-loader',
+      loader: 'html',
     }, {
       test: /\.json$/,
-      loader: 'json-loader',
+      loader: 'json',
     }, {
       test: /\.(mp4|webm)$/,
-      loader: 'url-loader?limit=10000',
+      loader: 'url?limit=10000',
     }],
     postLoaders: [
 

@@ -12,7 +12,7 @@ module.exports = {
   port: serverConfig.port || 8082,
   srcPath: path.resolve(process.cwd(), serverDirName),
   nodeModulesPath: path.join(process.cwd(), 'node_modules'),
-  buildPath: path.resolve(process.cwd(), 'build'),
+  buildPath: path.resolve(process.cwd(), 'build/server'),
   publicPath: '/',
   serverDirName,
 };

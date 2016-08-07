@@ -24,28 +24,8 @@ module.exports = (options) => ({
       loaders: ['babel'],
       include: webpackConfig.srcPath,
     }, {
-      // transform node_modules css
-      test: /\.css$/,
-      loaders: ['style-loader', 'css-loader'],
-      include: webpackConfig.srcPath,
-    }, {
-      test: /\.(eot|svg|ttf|woff|woff2)$/,
-      loader: 'file-loader',
-    }, {
-      test: /\.(jpg|png|gif)$/,
-      loaders: [
-        'file-loader',
-        'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}',
-      ],
-    }, {
-      test: /\.html$/,
-      loader: 'html-loader',
-    }, {
       test: /\.json$/,
       loader: 'json-loader',
-    }, {
-      test: /\.(mp4|webm)$/,
-      loader: 'url-loader?limit=10000',
     }],
     postLoaders: [
 

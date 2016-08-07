@@ -11,6 +11,7 @@ const webpackConfig = require('../../configs/server');
 module.exports = validate(createWebpackConfig({
   devtool: 'source-map',
   entry: [
+    'babel-polyfill',
     path.join(webpackConfig.srcPath, 'index.js'),
   ],
   output: {

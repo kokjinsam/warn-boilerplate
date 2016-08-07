@@ -13,7 +13,7 @@ module.exports = {
   port: clientConfig.port || 8080,
   srcPath: path.resolve(process.cwd(), clientDirName),
   nodeModulesPath: path.join(process.cwd(), 'node_modules'),
-  buildPath: path.resolve(process.cwd(), 'static'),
+  buildPath: path.resolve(process.cwd(), 'build/client'),
   publicPath: '/',
   clientDirName,
   omittedVendors: [

@@ -13,6 +13,7 @@ module.exports = validate(createWebpackConfig({
   entry: {
     app: [
       'webpack/hot/poll?1000',
+      'babel-polyfill',
       path.join(webpackConfig.srcPath, 'index.js'),
     ],
   },

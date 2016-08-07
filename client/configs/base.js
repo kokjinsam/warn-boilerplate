@@ -1,6 +1,4 @@
-// @import url(//fonts.googleapis.com/css?family=Roboto),
 /* eslint-disable */
-
 export default {
   html: {
     height: '100%',

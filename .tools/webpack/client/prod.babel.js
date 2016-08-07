@@ -10,10 +10,10 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpackConfig = require('../../configs/client');
 const pkg = require('../../../package.json');
-const pull = require('lodash.pull');
+const _ = require('lodash');
 
 const dependencies = Object.keys(pkg.dependencies);
-const vendors = pull(dependencies, ...webpackConfig.omittedVendors);
+const vendors = _.pull(dependencies, ...webpackConfig.omittedVendors);
 
 /* eslint-disable no-console */
 console.log(`

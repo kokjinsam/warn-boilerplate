@@ -2,7 +2,7 @@
  * DO NOT NEED TO MODIFY
  */
 import React, { Component, PropTypes } from 'react';
-import { Provider } from 'react-redux';
+import { ApolloProvider } from 'react-apollo';
 import { Router } from 'react-router';
 import createRoutes from './routes';
 
@@ -11,21 +11,23 @@ class Root extends Component {
   static propTypes = {
     store: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired,
+    client: PropTypes.any.isRequired,
   };
 
   render() {
     const {
       store,
       history,
+      client,
     } = this.props;
 
     return (
-      <Provider store={store}>
+      <ApolloProvider store={store} client={client}>
         <Router
           routes={createRoutes()}
           history={history}
         />
-      </Provider>
+      </ApolloProvider>
     );
   }
 }

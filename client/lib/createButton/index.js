@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import omit from 'lodash.omit';
+import _ from 'lodash';
 import cx from 'classnames';
 import styles from './styles';
 import useSheet from 'react-jss';
@@ -25,6 +25,7 @@ function createButton(text, Icon, options = {}) {
       iconColor: PropTypes.string,
       iconSize: PropTypes.number,
       raised: PropTypes.bool,
+      className: PropTypes.string,
       sheet: PropTypes.any.isRequired,
     };
 
@@ -87,10 +88,11 @@ function createButton(text, Icon, options = {}) {
         // style,
         raised,
         sheet,
+        className,
         ...others,
       } = this.props;
 
-      const cleanProps = omit(others, [
+      const cleanProps = _.omit(others, [
         'label',
         'labelColor',
         'labelStyle',
@@ -110,6 +112,7 @@ function createButton(text, Icon, options = {}) {
       const btnStyle = cx({
         [classes.button]: true,
         [classes.raisedBtn]: raised,
+        [className]: className,
       });
 
       const elem = linkButton ? 'a' : 'button';

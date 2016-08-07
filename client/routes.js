@@ -3,21 +3,25 @@ import {
   IndexRoute,
   Route,
 } from 'react-router';
-import Layout from './modules/core/components/Layout';
-import AppPage from './modules/core/components/AppPage';
-import AppPage2 from './modules/core/components/AppPage2';
-// import NotFoundPage from './modules/not-found/components/NotFoundPage';
+import Structure from './modules/core/components/Structure';
+import LaunchPage from './modules/launch/components/LaunchPage';
+import ExamplePage from './modules/example/components/ExamplePage';
+import NotFoundPage from './modules/not-found/components/NotFoundPage';
 
 export default function createRoutes() {
   return (
     <Route
       path="/"
-      component={Layout}
+      component={Structure}
     >
-      <IndexRoute component={AppPage} />
+      <IndexRoute component={LaunchPage} />
       <Route
-        path="/products"
-        component={AppPage2}
+        path="/example"
+        component={ExamplePage}
+      />
+      <Route
+        path="*"
+        component={NotFoundPage}
       />
     </Route>
   );

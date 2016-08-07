@@ -1,9 +1,12 @@
 import {
   dp2,
-} from 'react-uniform/lib/elevations';
+} from '../../configs/elevations';
 import {
   button,
-} from 'react-uniform/lib/typography';
+} from '../../configs/typography';
+import {
+  COLOR_TEXT_PRIMARY,
+} from '../../configs/constants';
 
 const styles = {
   button: {
@@ -28,6 +31,7 @@ const styles = {
   },
   text: {
     ...button(),
+    color: COLOR_TEXT_PRIMARY,
   },
 };
 

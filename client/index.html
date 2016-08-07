@@ -5,9 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="manifest.json">
     <meta name="mobile-web-app-capable" content="yes">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <title>React Client Boilerplate</title>
+    <style type="text/css">
+      *{margin:0;padding:0}.canvas{display:block;width:100%;height:100vh;background-color:#fff}.spinner{width:50px;height:50px;top:50%;position:relative;margin:-50px auto 0}.dot1,.dot2{width:100%;height:100%;border-radius:50%;background-color:#ff6347;opacity:.6;position:absolute;top:0;left:0;-webkit-animation:sk-bounce 2s infinite ease-in-out;animation:sk-bounce 2s infinite ease-in-out}.dot2{-webkit-animation-delay:-1s;animation-delay:-1s}@-webkit-keyframes sk-bounce{0%,100%{-webkit-transform:scale(0.0)}50%{-webkit-transform:scale(1.0)}}@keyframes sk-bounce{0%,100%{transform:scale(0.0);-webkit-transform:scale(0.0)}50%{transform:scale(1.0);-webkit-transform:scale(1.0)}}
+    </style>
   </head>
   <body>
-    <div id="app"></div>
+    <!--[if lt IE 7]>
+    <p class="browsehappy">
+      You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+    </p>
+    <![endif]-->
+    <div id="app">
+      <div class="canvas">
+        <div class="spinner">
+          <div class="dot1"></div>
+          <div class="dot2"></div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

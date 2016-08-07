@@ -6,6 +6,7 @@ import {
 import { routerMiddleware } from 'react-router-redux';
 import createLogger from 'redux-logger';
 import reducer from '../reducer';
+import apolloClient from '../configs/apollo';
 
 export default function ({
   initialState,
@@ -15,6 +16,7 @@ export default function ({
   const middleware = [
     logger,
     routerMiddleware(history),
+    apolloClient.middleware(),
   ];
 
   const enhancers = [];

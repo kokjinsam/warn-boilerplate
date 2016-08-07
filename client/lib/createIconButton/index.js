@@ -11,6 +11,7 @@ function createIconButton(Icon) {
     color: PropTypes.string,
     size: PropTypes.number,
     sheet: PropTypes.any.isRequired,
+    className: PropTypes.string,
   };
 
   class IconButton extends Component {
@@ -22,18 +23,18 @@ function createIconButton(Icon) {
 
     render() {
       const {
-        // style,
         color,
         size,
         iconStyle,
         sheet,
+        className,
         ...others,
       } = this.props;
 
       const { classes } = sheet;
 
-      // missing style
       const btnStyle = cx({
+        [className]: className,
         [classes.button]: true,
       });
 

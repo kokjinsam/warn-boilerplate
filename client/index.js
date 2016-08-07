@@ -1,6 +1,3 @@
-import 'babel-polyfill';
-import 'whatwg-fetch';
-
 import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -9,6 +6,7 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 import createStore from './lib/createReduxStore';
 import Root from './Root';
+import client from './configs/apollo';
 
 // ---- JSS Configuration
 configureJSS();
@@ -37,6 +35,7 @@ ReactDOM.render(
     <Root
       store={store}
       history={history}
+      client={client}
     />
   </AppContainer>,
   MOUNT_NODE
@@ -50,6 +49,7 @@ if (module.hot) {
         <NextRoot
           store={store}
           history={history}
+          client={client}
         />
       </AppContainer>,
       MOUNT_NODE

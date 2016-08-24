@@ -13,8 +13,21 @@
 git clone https://github.com/sammkj/warn-boilerplate
 cd warn-boilerplate
 npm install
-npm start
+
+## while installing package
+
+git remote set-url origin <new-repo-url>
+git push origin master
+
+## to develop client
+
+npm run start:client
 open http://localhost:8080
+
+## to develop server
+
+npm run start:server
+open http://localhost:3000
 ```
 
 -------------------

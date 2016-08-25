@@ -19,6 +19,7 @@ module.exports = {
   omittedVendors: [
     'express',
     'apollo-server',
+    'mongodb',
   ].concat(clientConfig.omittedVendors),
   indexHTMLFileName,
   indexHtmlLocation: path.join(clientDirName, indexHTMLFileName),

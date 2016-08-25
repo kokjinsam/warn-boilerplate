@@ -16,11 +16,10 @@ const dependencies = Object.keys(pkg.dependencies);
 const vendors = _.pull(dependencies, ...webpackConfig.omittedVendors);
 
 /* eslint-disable no-console */
-console.log(`
-  Dependencies that will be included in the front-end bundle:
-
-  ${vendors}
-`);
+console.log('Dependencies that will be included in the vendor bundle:');
+vendors.forEach((vendor, index) => {
+  console.log(`${index}. ${vendor}`);
+});
 
 module.exports = validate(createWebpackConfig({
   devtool: 'source-map',
@@ -32,8 +31,8 @@ module.exports = validate(createWebpackConfig({
     vendor: vendors,
   },
   output: {
-    filename: '[name].[hash].js',
-    chunkFilename: '[name].[hash].chunk.js',
+    filename: '[name].[chunkhash:8].js',
+    chunkFilename: '[name].[chunkhash:8].chunk.js',
   },
   plugins: [
     new CleanWebpackPlugin(webpackConfig.buildPath, {

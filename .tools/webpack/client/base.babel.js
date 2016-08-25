@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const WebpackMD5Hash = require('webpack-md5-hash');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 const webpackConfig = require('../../configs/client');
 
 module.exports = (options) => ({
@@ -52,7 +53,6 @@ module.exports = (options) => ({
     noParse: /\.min\.js/,
   },
   plugins: options.plugins.concat([
-    new WebpackMD5Hash(),
     new webpack.ProvidePlugin({
       Promise: 'imports?this=>global!exports?global.Promise!es6-promise',
       fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch',
@@ -62,6 +62,8 @@ module.exports = (options) => ({
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
+    new WebpackMD5Hash(),
+    new DashboardPlugin(),
   ]),
   eslint: {
     failOnWarning: false,
